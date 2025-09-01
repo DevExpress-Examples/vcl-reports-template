@@ -3,7 +3,7 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include "Unit1.h"
+#include "uMainForm.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "cxButtons"
