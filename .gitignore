@@ -96,6 +96,14 @@ __recovery/
 *.tvsconfig
 *.identcache
 
+# Build output directories
+Win32/Debug/
+Win32/Release/
+Win64/Debug/
+Win64/Release/
+Win64x/Debug/
+Win64x/Release/
+
 # Castalia statistics file (since XE7 Castalia is distributed with Delphi)
 *.stat
 
