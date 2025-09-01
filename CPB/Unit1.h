@@ -34,6 +34,8 @@
 #include "dxReport.hpp"
 #include "dxScrollbarAnnotations.hpp"
 #include <Data.DB.hpp>
+#include <Vcl.Menus.hpp>
+#include "dxmdaset.hpp"
 #include <FireDAC.Comp.Client.hpp>
 #include <FireDAC.Comp.DataSet.hpp>
 #include <FireDAC.DApt.hpp>
@@ -41,6 +43,8 @@
 #include <FireDAC.DatS.hpp>
 #include <FireDAC.Phys.hpp>
 #include <FireDAC.Phys.Intf.hpp>
+#include <FireDAC.Phys.MSAcc.hpp>
+#include <FireDAC.Phys.MSAccDef.hpp>
 #include <FireDAC.Stan.Async.hpp>
 #include <FireDAC.Stan.Def.hpp>
 #include <FireDAC.Stan.Error.hpp>
@@ -50,10 +54,6 @@
 #include <FireDAC.Stan.Pool.hpp>
 #include <FireDAC.UI.Intf.hpp>
 #include <FireDAC.VCLUI.Wait.hpp>
-#include <Vcl.Menus.hpp>
-#include <FireDAC.Phys.MSAcc.hpp>
-#include <FireDAC.Phys.MSAccDef.hpp>
-#include <FireDAC.Phys.ODBCBase.hpp>
 //---------------------------------------------------------------------------
 class TMainForm : public TForm
 {
@@ -65,7 +65,6 @@ __published:	// IDE-managed Components
 	TcxGridDBColumn *gvCategoriesCategoryID;
 	TcxGridDBColumn *gvCategoriesCategoryName;
 	TcxGridDBColumn *gvCategoriesDescription;
-	TcxGridDBColumn *gvCategoriesPicture;
 	TcxGridDBTableView *gvProducts;
 	TcxGridDBColumn *gvProductsProductID;
 	TcxGridDBColumn *gvProductsProductName;
@@ -85,13 +84,27 @@ __published:	// IDE-managed Components
 	TdxReportDataSetJSONConnection *dxReportDataConnectionManager1dxReportDataSetJSONConnection1;
 	TdxReportDataSetCollectionItem *itmProducts;
 	TdxReportDataSetCollectionItem *itmCategories;
-	TFDConnection *FDConnection1;
-	TFDQuery *fdProducts;
 	TDataSource *dsProducts;
-	TFDQuery *fdCategories;
 	TDataSource *dsCategories;
-	TdxReportDataSetJSONConnection *dxReportDataConnectionManager1dxReportDataSetJSONConnection2;
-	TFDPhysMSAccessDriverLink *FDPhysMSAccessDriverLink1;
+	TdxMemData *mdProducts;
+	TAutoIncField *mdProductsProductID;
+	TWideStringField *mdProductsProductName;
+	TIntegerField *mdProductsSupplierID;
+	TIntegerField *mdProductsCategoryID;
+	TWideStringField *mdProductsQuantityPerUnit;
+	TCurrencyField *mdProductsUnitPrice;
+	TSmallintField *mdProductsUnitsInStock;
+	TSmallintField *mdProductsUnitsOnOrder;
+	TSmallintField *mdProductsReorderLevel;
+	TBooleanField *mdProductsDiscontinued;
+	TWideStringField *mdProductsEAN13;
+	TdxMemData *mdCategories;
+	TAutoIncField *mdCategoriesCategoryID;
+	TWideStringField *mdCategoriesCategoryName;
+	TWideMemoField *mdCategoriesDescription;
+	TBlobField *mdCategoriesPicture;
+	TFDConnection *FDConnection1;
+	TFDQuery *FDQuery1;
 	void __fastcall btnShowDesignerClick(TObject *Sender);
 	void __fastcall btnViewReportClick(TObject *Sender);
 private:	// User declarations

@@ -39,24 +39,17 @@
 
 
 #pragma link "dxScrollbarAnnotations"
+#pragma link "dxmdaset"
 #pragma resource "*.dfm"
 TMainForm *MainForm;
 //---------------------------------------------------------------------------
 __fastcall TMainForm::TMainForm(TComponent* Owner)
 	: TForm(Owner)
 {
-    this->LoadData();
+
 }
 //---------------------------------------------------------------------------
-void __fastcall TMainForm::LoadData()
-{
-	FDConnection1->DriverName = "MSAcc";
-	FDConnection1->Params->Add("Database=..\\..\\..\\nwind.mdb");
-	FDConnection1->Connected = true;
 
-	fdProducts->Active = true;
-	fdCategories->Active = true;
-}
 //---------------------------------------------------------------------------
 void __fastcall TMainForm::btnShowDesignerClick(TObject *Sender)
 {
@@ -69,4 +62,6 @@ void __fastcall TMainForm::btnViewReportClick(TObject *Sender)
 	dxReport1->ShowViewer();
 }
 //---------------------------------------------------------------------------
+
+
 

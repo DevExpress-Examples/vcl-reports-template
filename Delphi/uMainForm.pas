@@ -15,7 +15,7 @@ uses
   Data.DB, cxDBData, cxGridLevel, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxGrid, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, dxReport.ConnectionString.JSON.DB,
-  dxReport.ConnectionString.JSON, Vcl.StdCtrls;
+  dxReport.ConnectionString.JSON, Vcl.StdCtrls, dxmdaset;
 
 type
   TMainForm = class(TForm)
@@ -23,15 +23,12 @@ type
     dxReportDataConnectionManager1: TdxReportDataConnectionManager;
     btnShowDesigner: TcxButton;
     btnViewReport: TcxButton;
-    FDConnection1: TFDConnection;
-    fdProducts: TFDQuery;
     gvCategories: TcxGridDBTableView;
     cxGrid1Level1: TcxGridLevel;
     cxGrid1: TcxGrid;
     dsProducts: TDataSource;
     dxReportDataConnectionManager1dxReportDataSetJSONConnection1: TdxReportDataSetJSONConnection;
     itmProducts: TdxReportDataSetCollectionItem;
-    fdCategories: TFDQuery;
     itmCategories: TdxReportDataSetCollectionItem;
     cxGrid1Level2: TcxGridLevel;
     gvProducts: TcxGridDBTableView;
@@ -39,7 +36,6 @@ type
     gvCategoriesCategoryID: TcxGridDBColumn;
     gvCategoriesCategoryName: TcxGridDBColumn;
     gvCategoriesDescription: TcxGridDBColumn;
-    gvCategoriesPicture: TcxGridDBColumn;
     gvProductsProductID: TcxGridDBColumn;
     gvProductsProductName: TcxGridDBColumn;
     gvProductsSupplierID: TcxGridDBColumn;
@@ -51,13 +47,27 @@ type
     gvProductsReorderLevel: TcxGridDBColumn;
     gvProductsDiscontinued: TcxGridDBColumn;
     gvProductsEAN13: TcxGridDBColumn;
+    mdProducts: TdxMemData;
+    mdCategories: TdxMemData;
+    mdCategoriesCategoryID: TAutoIncField;
+    mdCategoriesCategoryName: TWideStringField;
+    mdCategoriesDescription: TWideMemoField;
+    mdCategoriesPicture: TBlobField;
+    mdProductsProductID: TAutoIncField;
+    mdProductsProductName: TWideStringField;
+    mdProductsSupplierID: TIntegerField;
+    mdProductsCategoryID: TIntegerField;
+    mdProductsQuantityPerUnit: TWideStringField;
+    mdProductsUnitPrice: TCurrencyField;
+    mdProductsUnitsInStock: TSmallintField;
+    mdProductsUnitsOnOrder: TSmallintField;
+    mdProductsReorderLevel: TSmallintField;
+    mdProductsDiscontinued: TBooleanField;
+    mdProductsEAN13: TWideStringField;
     procedure btnShowDesignerClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
     procedure btnViewReportClick(Sender: TObject);
   private
     { Private declarations }
-  protected
-    procedure LoadData;
   public
     { Public declarations }
   end;
@@ -69,16 +79,6 @@ implementation
 
 {$R *.dfm}
 
-procedure TMainForm.LoadData;
-begin
-  FDConnection1.DriverName := 'MSAcc';
-  FDConnection1.Params.Add('Database=..\..\..\nwind.mdb');
-  FDConnection1.Connected := True;
-
-  fdProducts.Active := True;
-  fdCategories.Active := True;
-end;
-
 procedure TMainForm.btnShowDesignerClick(Sender: TObject);
 begin
   dxReport1.ShowDesigner;
@@ -87,11 +87,6 @@ end;
 procedure TMainForm.btnViewReportClick(Sender: TObject);
 begin
   dxReport1.ShowViewer;
-end;
-
-procedure TMainForm.FormCreate(Sender: TObject);
-begin
-  LoadData;
 end;
 
 end.
