@@ -72,7 +72,7 @@ implementation
 procedure TMainForm.LoadData;
 begin
   FDConnection1.DriverName := 'MSAcc';
-  FDConnection1.Params.Add('Database=..\..\nwind.mdb');
+  FDConnection1.Params.Add('Database=..\..\..\nwind.mdb');
   FDConnection1.Connected := True;
 
   fdProducts.Active := True;
