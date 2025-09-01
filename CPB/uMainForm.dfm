@@ -3434,18 +3434,4 @@ object MainForm: TMainForm
       FieldName = 'Picture'
     end
   end
-  object FDConnection1: TFDConnection
-    Params.Strings = (
-      'Database=D:\WorkProjects\VCLExamples\ReportsTemplate\nwind.mdb'
-      'ConnectionDef=Access_Demo')
-    Left = 304
-    Top = 224
-  end
-  object FDQuery1: TFDQuery
-    Connection = FDConnection1
-    SQL.Strings = (
-      'SELECT * FROM Categories')
-    Left = 312
-    Top = 232
-  end
 end

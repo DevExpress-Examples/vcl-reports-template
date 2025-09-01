@@ -36,24 +36,6 @@
 #include <Data.DB.hpp>
 #include <Vcl.Menus.hpp>
 #include "dxmdaset.hpp"
-#include <FireDAC.Comp.Client.hpp>
-#include <FireDAC.Comp.DataSet.hpp>
-#include <FireDAC.DApt.hpp>
-#include <FireDAC.DApt.Intf.hpp>
-#include <FireDAC.DatS.hpp>
-#include <FireDAC.Phys.hpp>
-#include <FireDAC.Phys.Intf.hpp>
-#include <FireDAC.Phys.MSAcc.hpp>
-#include <FireDAC.Phys.MSAccDef.hpp>
-#include <FireDAC.Stan.Async.hpp>
-#include <FireDAC.Stan.Def.hpp>
-#include <FireDAC.Stan.Error.hpp>
-#include <FireDAC.Stan.Intf.hpp>
-#include <FireDAC.Stan.Option.hpp>
-#include <FireDAC.Stan.Param.hpp>
-#include <FireDAC.Stan.Pool.hpp>
-#include <FireDAC.UI.Intf.hpp>
-#include <FireDAC.VCLUI.Wait.hpp>
 //---------------------------------------------------------------------------
 class TMainForm : public TForm
 {
@@ -103,8 +85,6 @@ __published:	// IDE-managed Components
 	TWideStringField *mdCategoriesCategoryName;
 	TWideMemoField *mdCategoriesDescription;
 	TBlobField *mdCategoriesPicture;
-	TFDConnection *FDConnection1;
-	TFDQuery *FDQuery1;
 	void __fastcall btnShowDesignerClick(TObject *Sender);
 	void __fastcall btnViewReportClick(TObject *Sender);
 private:	// User declarations

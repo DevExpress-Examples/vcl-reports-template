@@ -476,8 +476,8 @@ object MainForm: TMainForm
       00010F00010000010C0000003000370030003600380034003900300030003000
       37003700}
     SortOptions = []
-    Left = 368
-    Top = 216
+    Left = 144
+    Top = 312
     object mdProductsProductID: TAutoIncField
       FieldName = 'ProductID'
     end
@@ -3417,7 +3417,7 @@ object MainForm: TMainForm
       B835C11F8963528B663CD54293AFCD46AC59C9C57DE2213BAB78FBFF0053DC7C
       7FFFD900}
     SortOptions = []
-    Left = 352
+    Left = 64
     Top = 312
     object mdCategoriesCategoryID: TAutoIncField
       FieldName = 'CategoryID'
